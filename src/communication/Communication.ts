@@ -4,6 +4,12 @@ import type { Location } from "../rows_and_columns/Abstract";
 import type { TeamName } from "../teams/Team";
 
 
+type BaseCommunicationObject = {
+	id: Index;
+	type: string;
+	backend_expect_answer: boolean;
+	data: any;
+}
 export type PreGameCommunicationObject = {
 	type: "pre game";
 	id: Index;
@@ -53,15 +59,6 @@ export type PlayerDecisionCommunicationObject = {
 		reroll?: Index[];
 	};
 };
-export type SuccessCommunicationObject = {
-	type: "success";
-	id: Index;
-	backend_expect_answer: boolean;
-	data: {
-		id: Index;
-		successful: boolean;
-	};
-};
 export type WriteQuestionCommunicationObject = {
 	type: "write question";
 	id: Index;
@@ -78,6 +75,15 @@ export type WriteDecisionCommunicationObject = {
 		id: Index;
 		player_name: PlayerName;
 		location: Location;
+	};
+};
+export type SuccessCommunicationObject = {
+	type: "success";
+	id: Index;
+	backend_expect_answer: boolean;
+	data: {
+		id: Index;
+		successful: boolean;
 	};
 };
 export type FinalResultCommunicationObject = {
