@@ -37,7 +37,7 @@ export abstract class AI extends Player {
 				break;
 			}
 			default: {
-				throw new Error(`No decision for type ${msg.type}\nfull message ${JSON.stringify(msg)}`);
+				console.error(`No decision for type ${msg.type}\nfull message ${JSON.stringify(msg)}`);
 			}
 		}
 		return null;
